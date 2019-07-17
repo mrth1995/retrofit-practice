@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.mrth.netzme.test.endpoint.NetzmeEndpoint;
 import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.jackson.JacksonConverterFactory;
 
 import javax.annotation.PostConstruct;
@@ -23,6 +24,7 @@ public class EndpointProducer {
 		Retrofit retrofit = new Retrofit.Builder()
 				.baseUrl("https://randomuser.me")
 				.addConverterFactory(JacksonConverterFactory.create(objectMapper))
+				.addCallAdapterFactory(RxJava2CallAdapterFactory.create())
 				.build();
 		endpoint = retrofit.create(NetzmeEndpoint.class);
 	}
