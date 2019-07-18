@@ -1,11 +1,10 @@
 package io.mrth.netzme.test.endpoint;
 
 import io.reactivex.Single;
-import retrofit2.Call;
 import retrofit2.http.GET;
 
-public interface NetzmeEndpoint {
+public interface RandomPersonEndpoint {
 
 	@GET("/api")
-	Single<NetzmeResponse<NetzmePerson>> getPerson();
+	Single<RandomPersonResponse<RandomPerson>> getPerson();
 }

@@ -2,7 +2,7 @@ package io.mrth.netzme.test.infrastructure;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.mrth.netzme.test.endpoint.NetzmeEndpoint;
+import io.mrth.netzme.test.endpoint.RandomPersonEndpoint;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.jackson.JacksonConverterFactory;
@@ -15,7 +15,7 @@ import javax.enterprise.inject.Produces;
 @ApplicationScoped
 public class EndpointProducer {
 
-	private NetzmeEndpoint endpoint;
+	private RandomPersonEndpoint endpoint;
 
 	@PostConstruct
 	public void init() {
@@ -26,12 +26,12 @@ public class EndpointProducer {
 				.addConverterFactory(JacksonConverterFactory.create(objectMapper))
 				.addCallAdapterFactory(RxJava2CallAdapterFactory.create())
 				.build();
-		endpoint = retrofit.create(NetzmeEndpoint.class);
+		endpoint = retrofit.create(RandomPersonEndpoint.class);
 	}
 
 	@Produces
 	@Dependent
-	public NetzmeEndpoint getEndpoint() {
+	public RandomPersonEndpoint getEndpoint() {
 		return endpoint;
 	}
 }

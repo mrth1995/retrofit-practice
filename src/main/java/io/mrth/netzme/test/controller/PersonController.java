@@ -1,7 +1,7 @@
 package io.mrth.netzme.test.controller;
 
 import io.mrth.netzme.test.model.Person;
-import io.mrth.netzme.test.service.NetzmeService;
+import io.mrth.netzme.test.service.RandomPersonService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -12,7 +12,6 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import java.io.IOException;
 
 @RequestScoped
 @Path("person")
@@ -22,10 +21,10 @@ public class PersonController {
 	private static final Logger LOG = LoggerFactory.getLogger(PersonController.class);
 
 	@Inject
-	private NetzmeService service;
+	private RandomPersonService service;
 
 	@GET
-	public Person getPerson() throws IOException {
+	public Person getPerson() {
 		LOG.info("getPerson");
 		return service.getPerson();
 	}
