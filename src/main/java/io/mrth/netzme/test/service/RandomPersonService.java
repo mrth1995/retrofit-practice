@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 import java.io.Serializable;
+import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 
 @Dependent
@@ -23,16 +24,10 @@ public class RandomPersonService implements Serializable {
 	private RandomPersonEndpoint endpoint;
 
 	public Person getPerson() {
-		Single<RandomPersonResponse<RandomPerson>> single =  endpoint.getPerson();
-		AtomicReference<Person> reference = new AtomicReference<>();
-		single.subscribe(response -> {
-			RandomPerson randomPerson = response.getResults().get(0);
-			Person p = new Person(randomPerson);
-			reference.set(p);
-			}, error -> {
-			LOGGER.error(error.getMessage(), error);
-		});
-		return reference.get();
+		Observable<RandomPersonResponse<RandomPerson>> single =  endpoint.getPerson();
+		return single.flatMap(res -> Observable.fromIterable(res.getResults()))
+				.map(Person::new)
+				.doOnError(err -> LOGGER.info(err.getMessage()))
+				.blockingLast();
 	}
-
 }

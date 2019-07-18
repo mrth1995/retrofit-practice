@@ -1,6 +1,6 @@
 package io.mrth.netzme.test.endpoint;
 
-import io.reactivex.Single;
+import io.reactivex.Observable;
 import retrofit2.mock.BehaviorDelegate;
 
 import java.util.ArrayList;
@@ -14,7 +14,7 @@ public class RandomPersonEndpointMock implements RandomPersonEndpoint {
 	}
 
 	@Override
-	public Single<RandomPersonResponse<RandomPerson>> getPerson() {
+	public Observable<RandomPersonResponse<RandomPerson>> getPerson() {
 		RandomPersonResponse<RandomPerson> response = new RandomPersonResponse<>();
 		List<RandomPerson> list = new ArrayList<>();
 		list.add(new RandomPerson("male", "kwon@mail.com", new RandomPerson.Name("mr", "kwon", "banner"),
