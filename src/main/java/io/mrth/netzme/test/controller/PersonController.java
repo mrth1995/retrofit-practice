@@ -11,6 +11,8 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.container.AsyncResponse;
+import javax.ws.rs.container.Suspended;
 import javax.ws.rs.core.MediaType;
 
 @RequestScoped
@@ -24,8 +26,8 @@ public class PersonController {
 	private RandomPersonService service;
 
 	@GET
-	public Person getPerson() {
+	public void getPerson(@Suspended AsyncResponse response) {
 		LOG.info("getPerson");
-		return service.getPerson();
+		service.getPerson().subscribe(response::resume, response::resume);
 	}
 }
