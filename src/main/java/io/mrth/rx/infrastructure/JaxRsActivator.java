@@ -1,4 +1,4 @@
-package io.mrth.netzme.test.infrastructure;
+package io.mrth.rx.infrastructure;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;

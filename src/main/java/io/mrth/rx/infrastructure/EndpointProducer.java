@@ -1,8 +1,8 @@
-package io.mrth.netzme.test.infrastructure;
+package io.mrth.rx.infrastructure;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.mrth.netzme.test.endpoint.RandomPersonEndpoint;
+import io.mrth.rx.endpoint.RandomPersonEndpoint;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.jackson.JacksonConverterFactory;

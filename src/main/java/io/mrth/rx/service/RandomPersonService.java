@@ -1,9 +1,9 @@
-package io.mrth.netzme.test.service;
+package io.mrth.rx.service;
 
-import io.mrth.netzme.test.endpoint.RandomPerson;
-import io.mrth.netzme.test.endpoint.RandomPersonEndpoint;
-import io.mrth.netzme.test.endpoint.RandomPersonResponse;
-import io.mrth.netzme.test.model.Person;
+import io.mrth.rx.endpoint.RandomPerson;
+import io.mrth.rx.endpoint.RandomPersonEndpoint;
+import io.mrth.rx.endpoint.RandomPersonResponse;
+import io.mrth.rx.model.Person;
 import io.reactivex.Observable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

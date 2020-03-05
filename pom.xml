@@ -5,11 +5,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>io.mrth</groupId>
-	<artifactId>netzme-test</artifactId>
+	<artifactId>rxjava2-retrofit-example</artifactId>
 	<version>1.0-SNAPSHOT</version>
 	<packaging>war</packaging>
 
-	<name>netzme-test</name>
+	<name>rx-retrofit</name>
 
 	<properties>
 		<maven.compiler.target>1.8</maven.compiler.target>
@@ -104,7 +104,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>netzme-test</finalName>
+		<finalName>rx-retrofix</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>

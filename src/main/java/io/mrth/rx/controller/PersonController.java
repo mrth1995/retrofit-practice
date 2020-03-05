@@ -1,7 +1,6 @@
-package io.mrth.netzme.test.controller;
+package io.mrth.rx.controller;
 
-import io.mrth.netzme.test.model.Person;
-import io.mrth.netzme.test.service.RandomPersonService;
+import io.mrth.rx.service.RandomPersonService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

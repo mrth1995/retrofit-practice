@@ -1,6 +1,7 @@
-package io.mrth.netzme.test.endpoint;
+package io.mrth.rx.endpoint;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -40,7 +41,7 @@ public class RandomPersonEndpointTest {
 		RandomPersonResponse<RandomPerson> response = new RandomPersonResponse<>();
 		List<RandomPerson> list = new ArrayList<>();
 		list.add(new RandomPerson("male", "kwon@mail.com", new RandomPerson.Name("mr", "kwon", "banner"),
-				new RandomPerson.Location("sadarmanah", "cimahi", "40532", "Jawa barat"),
+				new RandomPerson.Location(new RandomPerson.Location.Street(282, "Saradan"), "cimahi", "40532", "Jawa barat"),
 				new RandomPerson.Picture("http://localhost")));
 		response.setResults(list);
 		endpoint.getPerson().test().assertValue(response);

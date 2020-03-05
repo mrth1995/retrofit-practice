@@ -1,6 +1,6 @@
-package io.mrth.netzme.test.model;
+package io.mrth.rx.model;
 
-import io.mrth.netzme.test.endpoint.RandomPerson;
+import io.mrth.rx.endpoint.RandomPerson;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -20,7 +20,7 @@ public class Person {
 	public Person(RandomPerson randomPerson) {
 		this.fullName = randomPerson.getName().getTitle() + " " + randomPerson.getName().getFirst() + " " + randomPerson.getName().getLast();
 		this.gender = randomPerson.getGender();
-		this.address = randomPerson.getLocation().getStreet() + " " + randomPerson.getLocation().getCity();
+		this.address = randomPerson.getLocation().getStreet().getName() + " " + randomPerson.getLocation().getCity();
 		this.picture = randomPerson.getPicture().getLarge();
 	}
 

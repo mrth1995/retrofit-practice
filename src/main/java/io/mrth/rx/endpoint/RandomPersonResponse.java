@@ -1,4 +1,4 @@
-package io.mrth.netzme.test.endpoint;
+package io.mrth.rx.endpoint;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;

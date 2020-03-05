@@ -1,4 +1,4 @@
-package io.mrth.netzme.test.endpoint;
+package io.mrth.rx.endpoint;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -88,22 +88,23 @@ public class RandomPerson {
 	}
 
 	public static class Location {
-		private String street;
+		private Street street;
 		private String city;
 		private String postcode;
 		private String state;
+		private String country;
 
 		public Location() {
 		}
 
-		public Location(String street, String city, String postcode, String state) {
+		public Location(Street street, String city, String postcode, String state) {
 			this.street = street;
 			this.city = city;
 			this.postcode = postcode;
 			this.state = state;
 		}
 
-		public String getStreet() {
+		public Street getStreet() {
 			return street;
 		}
 
@@ -117,6 +118,10 @@ public class RandomPerson {
 
 		public String getState() {
 			return state;
+		}
+
+		public String getCountry() {
+			return country;
 		}
 
 		@Override
@@ -133,6 +138,41 @@ public class RandomPerson {
 		@Override
 		public int hashCode() {
 			return Objects.hash(street, city, postcode, state);
+		}
+
+		public static class Street {
+			private int number;
+			private String name;
+
+			public Street() {
+			}
+
+			public Street(int number, String name) {
+				this.number = number;
+				this.name = name;
+			}
+
+			public int getNumber() {
+				return number;
+			}
+
+			public String getName() {
+				return name;
+			}
+
+			@Override
+			public boolean equals(Object o) {
+				if (this == o) return true;
+				if (o == null || getClass() != o.getClass()) return false;
+				Street street = (Street) o;
+				return number == street.number &&
+						Objects.equals(name, street.name);
+			}
+
+			@Override
+			public int hashCode() {
+				return Objects.hash(number, name);
+			}
 		}
 	}
 

@@ -1,4 +1,4 @@
-package io.mrth.netzme.test.endpoint;
+package io.mrth.rx.endpoint;
 
 import io.reactivex.Observable;
 import retrofit2.mock.BehaviorDelegate;
@@ -18,7 +18,7 @@ public class RandomPersonEndpointMock implements RandomPersonEndpoint {
 		RandomPersonResponse<RandomPerson> response = new RandomPersonResponse<>();
 		List<RandomPerson> list = new ArrayList<>();
 		list.add(new RandomPerson("male", "kwon@mail.com", new RandomPerson.Name("mr", "kwon", "banner"),
-				new RandomPerson.Location("sadarmanah", "cimahi", "40532", "Jawa barat"),
+				new RandomPerson.Location(new RandomPerson.Location.Street(282, "Saradan"), "cimahi", "40532", "Jawa barat"),
 				new RandomPerson.Picture("http://localhost")));
 		response.setResults(list);
 		return delegate.returningResponse(response).getPerson();
